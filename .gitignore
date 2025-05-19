@@ -1,1 +1,9 @@
+node_modules/
+client/node_modules/
 .env
+*.DS_Store
+bin/
+obj/
+server/UtilityTracker.API/appsettings.json
+*.pem
+

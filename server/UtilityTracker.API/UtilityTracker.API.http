@@ -1,0 +1,6 @@
+@UtilityTracker.API_HostAddress = http://localhost:5128
+
+GET {{UtilityTracker.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
