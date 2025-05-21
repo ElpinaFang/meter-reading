@@ -21,11 +21,34 @@ const ReadingForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="userId" value={form.userId} onChange={handleChange} placeholder="User ID" required />
-      <input name="electricity" value={form.electricity} onChange={handleChange} placeholder="Electricity" required />
-      <input name="water" value={form.water} onChange={handleChange} placeholder="Water" required />
-      <button type="submit">Submit</button>
+    <form onSubmit={handleSubmit} className="space-y-4 p-4 bg-white shadow rounded">
+      <input
+        name="userId"
+        value={form.userId}
+        onChange={handleChange}
+        className="w-full border rounded px-3 py-2"
+        placeholder="User ID"
+        required
+      />
+      <input
+        name="electricity"
+        value={form.electricity}
+        onChange={handleChange}
+        className="w-full border rounded px-3 py-2"
+        placeholder="Electricity"
+        required
+      />
+      <input
+        name="water"
+        value={form.water}
+        onChange={handleChange}
+        className="w-full border rounded px-3 py-2"
+        placeholder="Water"
+        required
+      />
+      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Submit
+      </button>
     </form>
   );
 };
