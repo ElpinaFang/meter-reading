@@ -1,6 +1,7 @@
 import React from 'react';
 import ReadingForm from './components/ReadingForm';
 import Dashboard from './components/Dashboard';
+import ChartSection from './components/ChartSection';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <h1 className="text-3xl font-bold text-center text-blue-800">Utility Usage Tracker</h1>
       <ReadingForm />
       <Dashboard />
+      <ChartSection />
     </div>
   );
 }
