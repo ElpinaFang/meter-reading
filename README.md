@@ -4,7 +4,7 @@ A fullstack web application to track and visualize daily household electricity a
 
 Built with:
 - **ASP.NET Core** (C#) for the backend
-- **React + TypeScript** + Tailwind CSS for the frontend
+- **React + TypeScript** for the frontend
 - **PostgreSQL** via **Amazon RDS**
 - **AWS S3** and **EC2** for deployment
 
