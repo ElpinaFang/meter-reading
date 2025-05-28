@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+/*
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost3000", policy =>
@@ -22,18 +22,20 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod();
     });
 });
+*/
 
-
-/* builder.Services.AddCors(options =>
+//Fix CORS on yout ASP.NET Core =Backend
+builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowS3", builder =>
+    options.AddPolicy("AllowS3", policy =>
     {
-        builder.WithOrigins("http://your-s3-url.amazonaws.com")
-               .AllowAnyHeader()
-               .AllowAnyMethod();
+        policy.WithOrigins("http://utility-tracker-frontend.s3-website-ap-southeast-2.amazonaws.com")
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
-*/
+//builder.Services.AddCors()
+
 
 var app = builder.Build();
 
@@ -58,9 +60,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+//app.UseCors("AllowLocalhost3000");
+app.UseCors("AllowS3");
 app.UseHttpsRedirection();
-app.UseCors("AllowLocalhost3000");
-//app.UseCors("AllowS3");
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
