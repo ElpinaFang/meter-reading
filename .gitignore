@@ -6,4 +6,4 @@ bin/
 obj/
 server/UtilityTracker.API/appsettings.json
 *.pem
-
+server/UtilityTracker.API/publish
