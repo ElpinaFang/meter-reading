@@ -27,14 +27,18 @@ builder.Services.AddCors(options =>
 //Fix CORS on yout ASP.NET Core =Backend
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowS3", policy =>
+    options.AddPolicy("AllowLocalAndS3", policy =>
     {
-        policy.WithOrigins("http://utility-tracker-frontend.s3-website-ap-southeast-2.amazonaws.com")
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy.WithOrigins(
+            "http://localhost:3000",
+            "http://utility-tracker-frontend.s3-website-ap-southeast-2.amazonaws.com",        
+            "https://utility-tracker-frontend.s3-website-ap-southeast-2.amazonaws.com"
+        )
+        .AllowAnyMethod()
+        .AllowAnyHeader();
     });
 });
-//builder.Services.AddCors()
+
 
 
 var app = builder.Build();
@@ -62,7 +66,7 @@ if (app.Environment.IsDevelopment())
 
 
 //app.UseCors("AllowLocalhost3000");
-app.UseCors("AllowS3");
+app.UseCors("AllowLocalAndS3");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
